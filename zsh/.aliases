@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# directory navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Custom Aliases
+alias la="ls -A"
+alias ll="ls -1a";
+alias ..="cd ../";
+alias ..l="cd ../ && ll";
+alias pg="echo 'Pinging Google' && ping www.google.com";
+alias vim="vim"
+alias vi="vim"
+
+# npm script shortcuts
+alias i="ni"
+alias t="nr test"
+alias b="nr build"
+alias tb="nr test-build"
+alias d="nr dev"
+alias dd="nr debug"
+alias s="nr serve"
+alias de="nr dev-example"
+alias be="nr build-example"
+alias vr="vitest run"
+alias p="pnpm"
+
+# git shortcuts
+alias gs="git status"
+alias ga="git add -A ."
+alias gc="git commit"
+alias gb="git branch"
+alias gd="git diff"
+alias gco="git checkout"
+alias gp="git push"
+alias gl="git pull"
+alias gt="git tag"
+alias gm="git merge"
+alias gg="git log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset %C(yellow)%ad%Creset' --abbrev-commit --date=short"
+alias ggr="git log --reverse --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset %C(yellow)%ad%Creset' --abbrev-commit --date=short"
+alias gcp="git cherry-pick"
+alias gcpc="git cherry-pick --continue"
+alias gcpa="git cherry-pick --abort"
+alias gbg="git bisect good"
+alias gbb="git bisect bad"
+
+# git aliases
+function gc { git commit -m "$@"; }
+#function gcs { git commit -S -m "$@"; }
+alias gcs="git commit -S -m"
+alias gs="git status";
+alias gf="git fetch";
+alias gaa="git add -A .";
+alias gau="git add -u";
+alias ga="git add";
+dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
+cdiff() { code --diff "$1" "$2"; }
+
+# npm shortcuts that only list top-level modules
+alias l="yarn list --depth=0 2>/dev/null"
+alias lg="npm list -g --depth=0 2>/dev/null"
+
+# process finding
+alias pg="pgrep -lf"
+
+# rust aliases
+alias cr="cargo run --quiet && cargo clean"
+
+# kubernetes aliases
+alias k="kubectl"
+
+# python aliases
+alias ea="source venv/bin/activate"
+alias ea1="source venv1/bin/activate"
+alias pmr="python manage.py runserver"
+alias pmc="python manage.py collectstatic --no-input"
+alias pmm="python manage.py migrate"
