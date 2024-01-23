@@ -223,6 +223,18 @@ configuration files:
 rm -rf ~/.dotfiles $__fish_config_dir
 ```
 
+## Update GPG key for signed commit
+
+```shell
+gpg --list-secret-keys --keyid-format=long
+```
+
+copy the key
+
+```shell
+git config --global user.signingkey <key>
+```
+
 ## Questions
 
 If you have questions, notice issues, or would like to see improvements, please open a new [discussion](https://github.com/mkmah/dotfiles/discussions/new) and I'm happy to help you out!
