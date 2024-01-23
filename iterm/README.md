@@ -1,2 +1,2 @@
 
-1. import manoj.json file inside the profile section
+import default.json file inside the profile section
