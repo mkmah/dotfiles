@@ -52,6 +52,15 @@ The script, `install.fish` is the one-stop for all things setup, backup, and ins
 Usage: install.fish {backup|fisher|link|git|homebrew|shell|macos|all}
 ```
 
+First run this to have fish shell in /etc/shells
+
+```shell
+> ./install.fish shell
+```
+
+Restart the terminal tab
+
+
 ### `backup`
 
 ```bash

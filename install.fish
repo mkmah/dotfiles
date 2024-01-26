@@ -10,8 +10,11 @@ set -Ux CONFIG_ROOT $DOTFILES/config
 
 function title
 	echo -e
-    echo (set_color --bold cyan)$argv(set_color normal)
-    echo (set_color --bold grey)(string repeat -n80 =)(set_color normal)
+	set total_length (math (string length $argv)+2)
+	set term_width (tput cols)
+	set start_length (math round (math $term_width-$total_length)/2)
+	set end_length (math $start_length-(math $term_width % 2))
+    echo (set_color --bold grey)(string repeat -n$start_length =) (set_color --background blue --bold brcyan)$argv(set_color normal) (set_color --bold grey)(string repeat -n$end_length =)(set_color normal)
     echo -e
 end
 
@@ -190,10 +193,6 @@ end
 function install
 	title "Installing fish plugins using fisher"
 
-	setup_symlinks
-		and success 'symlinks'
-        or abort 'symlinks'
-
 	fisher update
 		and success 'plugins'
 		or abort 'plugins'
@@ -205,6 +204,10 @@ function install
 	mkdir -p $__fish_config_dir/completions/
 		and success 'completions'
 		or abort 'completions'
+
+	$CONFIG_ROOT/install.fish
+    	and success "entry install.fish"
+    	or abort "entry install.fish"
 
 	for installer in $CONFIG_ROOT/*/install.fish
 		$installer
@@ -268,6 +271,8 @@ switch $argv[1]
 			or abort 'gitconfig'
 	case install
 		install
+			and success 'install'
+            or abort 'install'
 	case shell
 		setup_shell
 			and success 'shell'
@@ -286,6 +291,9 @@ switch $argv[1]
     	setup_gitconfig
 			and success 'gitconfig'
 			or abort 'gitconfig'
+		setup_symlinks
+            and success 'symlinks'
+            or abort 'symlinks'
 		install
 			and success 'install'
         	or abort 'install'

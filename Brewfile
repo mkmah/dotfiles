@@ -13,10 +13,6 @@ if OS.mac?
     cask "imageoptim" # a tool to optimize images
     cask "1password/tap/1password-cli"
 
-    # yabai
-    brew "yabai"
-    brew "skhd"
-
     # Fonts
     cask "font-fira-code"
     cask "font-jetbrains-mono"
@@ -35,7 +31,7 @@ brew "alacritty" # a cross-platform, OpenGL terminal emulator;
 brew "bat" # better cat
 brew "cloc" # lines of code counter
 brew "entr" # file watcher / command runner
-brew "exa" # ls alternative
+brew "eza" # ls alternative
 brew "fd" # find alternative
 brew "fnm" # Fast Node version manager
 brew "fzf" # Fuzzy file searcher, used in scripts and in vim
