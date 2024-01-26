@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 if not command -qs nvim
     exit
-end
+endg
 
 alias --save e='nvim'
 alias --save v='nvim'
